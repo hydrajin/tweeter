@@ -4,7 +4,6 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
- 
   background-color: #0c5900;
   margin-top: 120px;
   background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
@@ -16,4 +15,3 @@ header h2 {
   font-weight: 400;
   font-size: 50px;
 }
-
