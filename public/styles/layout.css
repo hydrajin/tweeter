@@ -15,12 +15,32 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: #6d6345;
+  background-color: #c60c0c;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+ main {
+  display: flex;
+  flex-direction: column;
+   background-color: inherit;
+   align-items: center;
+ /* padding: t r b l (top-bottom-left-right)*/
+  margin: 0 5% 0 5%; /* 5 on each side (100-10 = 90)*/
+ }
+ 
+ /*
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
  */
