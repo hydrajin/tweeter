@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #6d6345;
-  background-color: #c60c0c;
+  /* color: #c4beae; */
+  background-color: #ffffff;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
   display: flex;
@@ -31,10 +31,10 @@ body {
  main {
   display: flex;
   flex-direction: column;
-   background-color: inherit;
-   align-items: center;
+  align-items: center;
  /* padding: t r b l (top-bottom-left-right)*/
-  margin: 0 5% 0 5%; /* 5 on each side (100-10 = 90)*/
+  /* margin: 0 5% 0 5%; 5 on each side (100-10 = 90) */
+  width: 100%;
  }
  
  /*
