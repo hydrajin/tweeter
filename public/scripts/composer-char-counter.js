@@ -31,11 +31,33 @@ $(document).ready(function() {
 
     const limit = remainingChar - charInput;
     charCounter.text(limit);
-    if (limit < 0) {
-      // Find other method to use!
-      charCounter.css('color', 'red');
-      console.log("LIMIT EXCEEDED");
-    }
-
+    // if all 140 characters are used up
+    limit < 0 ?
+    // change counter to css class limit which is red
+      $("output.counter").addClass("limit") :
+    // else remove class if 140 characters aren't used
+      $("output.counter").removeClass("limit");
   });
 });
+
+// if (limit < 0) {
+//   // Find other method to use!
+//   $("output.counter").addClass("limit");
+//   // console.log("LIMIT EXCEEDED");
+// } else {
+//   $("output.counter").removeClass("limit");
+// }
+// });
+// });
+
+
+//     // if all 140 characters are used up
+//     if (limit < 0) {
+//       // Find other method to use!
+//       charCounter.css("color", "#DC143C");
+//       // console.log("LIMIT EXCEEDED");
+//     } else {
+//       charCounter.css("color", "#6B6B6B");
+//     }
+//   });
+// });

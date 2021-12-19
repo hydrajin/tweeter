@@ -15,3 +15,11 @@ header h2 {
   font-weight: 400;
   font-size: 50px;
 }
+
+.header-2 {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+
