@@ -57,7 +57,7 @@ textarea {
 }
 
 .limit {
-  color: #DC143C;
+  color: #ff0000;
 }
 
 button {
@@ -71,6 +71,15 @@ button {
   width: 100%;
 }
 
+.tweets {
+  margin-top: 1.5em;
+  margin-bottom: 1.5;
+  border: 3px solid #6B6B6B;
+  /* top right bottom left */
+  padding: 1em 1em 1em 1em;
+  box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
 .avatar {
   height: 3.2em;
   width: 3.2em;
@@ -79,7 +88,13 @@ button {
 
 .imagename {
   display: flex;
+  opacity: 0.5;
  }
+
+.handle {
+  opacity: 0.5;
+  color:#4056A1
+}
 
  .profile-detail {
    display: flex;
@@ -98,25 +113,18 @@ button {
   font-size: 18px;
   margin: 0;
   margin-top: 0.4em;
- 
-}
-
-.tweets {
-  margin-top: 1.5em;
-  border: 3px solid #6B6B6B;
-  /* top right bottom left */
-  padding: 1em 1em 1em 1em;
 }
 
 .tweet-icons {
-
   font-size: 18px;
-  color:#4056A1
+  color:#4056A1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90px;
 }
 
-.handle {
-  opacity: 0.3;
-  color:#4056A1
+.tweet-icon:hover {
+  color:#ff0000;
 }
-
 
