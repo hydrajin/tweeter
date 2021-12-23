@@ -7,6 +7,13 @@
 /* eslint-env browser */
 /* global timeago */
 
+// Implement escape text function to prevent XSS (Cross Site Scripting)
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 // $(document).ready(function () {
 // Shorter more concise way of saying .ready
 $(() => {
@@ -118,7 +125,7 @@ const createTweetElement = (tweet) => {
     </div>
   </section>
 <p class="tweet">
-  ${tweet.content.text}
+  ${escape(tweet.content.text)}
 </p>
 <div class="tweet-break"></div>
   <footer class="footer">
