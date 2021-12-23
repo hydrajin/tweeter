@@ -7,11 +7,11 @@
 /* eslint-env browser */
 /* global timeago */
 
-
 // $(document).ready(function () {
 // Shorter more concise way of saying .ready
 $(() => {
- 
+  // Load tweets on page ready (When the entire page is loaded)
+  
   fetchTweets();
 
   const $form = $("#post-tweet");
@@ -19,11 +19,9 @@ $(() => {
 
 });
 
-
 // $.getJSON("/tweets", function() {
 //! I used this JQUERY  function (Andy AJAX lecture 00:10:00 to test if tweets.JSON data would work)
 // So far, all the data loads and new tweets appear when page is refreshed...
-
 
 //! ------------------------------FETCH TWEETS------------------------------
 // GET REQUEST
@@ -45,7 +43,6 @@ const fetchTweets = () => {
   });
 };
 
-
 //! ------------------------------SUBMIT A NEW TWEET------------------------------
 //POST REQUEST
 const submitTweet = function(event) {
@@ -57,43 +54,47 @@ const submitTweet = function(event) {
   const serializedData = $(this).serialize();
   // console.log("Serialized Data", serializedData);
 
-  // const emptyTweet = () => {
-  //   if (serializedData === "") {
-  //     alert("EMPTY TWEET");
-  //     return false;
-  //   }
+
+  const tweetText = $("#tweet-text").val();
+  const textLimit = tweetText.length;
+
+  // Prevent empty tweet from being submitted
+  if (tweetText === "") {
+    alert("Empty Tweet!");
+  // Prevent a long tweet from being submitted
+  } else if (textLimit > 140) {
+    alert("Tweet is too long!");
+  } else {
+ 
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: serializedData,
+
+    }).then(function(data) {
+      console.log("Sucessful tweet!", data);
+      // Load tweet data
+      fetchTweets(data);
  
 
-  $.ajax({
-    url: "/tweets",
-    method: "POST",
-    data: serializedData,
+      // clear tweet text area when tweet is submitted
+      $("#tweet-text").val("");
+      // reset the counter back to 140
+      $("output.counter").text(140);
 
-  }).then(function(data) {
-    console.log("Sucessful tweet!", data);
-    // Load tweet data
-    fetchTweets(data);
- 
-
-    // clear tweet text area when tweet is submitted
-    $("#tweet-text").val("");
-    // reset the counter back to 140
-    $("output.counter").text(140);
-
-  }).fail((err) =>
-    console.log(err)
-  );
+    }).fail((err) =>
+      console.log(err)
+    );
 
   // fetchTweets();
-
+  }
 };
-
 //! ------------------------------RENDER TWEETS------------------------------
 
 const renderTweets = function(tweets) {
   const $tweetContainer = $("#tweet-container");
   // empty before iterating
-  // $tweetContainer.empty();
+  $tweetContainer.empty();
   // loops through tweets
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
@@ -131,10 +132,3 @@ const createTweetElement = (tweet) => {
 </article>`);
   return $tweet;
 };
-
-
-
-
- 
-  
- 
