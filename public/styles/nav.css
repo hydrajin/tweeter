@@ -29,17 +29,18 @@ nav div {
 
 nav .fas {
   color: #ff0000;
-  margin-left: 0.5em;
+  /* margin-left: 0.3em; */
+  margin-top: 0.3em;
 }
 
 #dd {
-  animation: MoveUpDown 1s infinite alternate;
+  animation: MoveUpDown 0.8s infinite alternate;
 }
 @keyframes MoveUpDown {
   0% {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
   }
 }
