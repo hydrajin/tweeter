@@ -21,6 +21,8 @@ $(() => {
   
   fetchTweets();
 
+  $(".error").hide();
+
   const $form = $("#post-tweet");
   $form.on("submit", submitTweet);
 
@@ -65,12 +67,43 @@ const submitTweet = function(event) {
   const tweetText = $("#tweet-text").val();
   const textLimit = tweetText.length;
 
+
   // Prevent empty tweet from being submitted
   if (tweetText === "") {
-    alert("Empty Tweet!");
+    $("#error-blank").show();
+    $("#error-limit").hide();
+    // $("#error-blank").style.display = "none";
+    // hideElement(".error");
+    // $("#error-msg").append(" <b>Appended text</b>.");
+    $(".error").slideDown("slow");
+    setTimeout(() => {
+      $(".error").slideUp("slow");
+    }, 1500);
+    // $(".error").addClass(".error");
+    // // $(".error").slideUp("slow");
+    // // hideElement(".error");
+    // $(".error").hide();
+    // // $(".blank").slideDown();
+  
+    // $("#tweet-text").addClass("has-error");
+    // $("tweet-text").append(
+    //   '<div class="help-block">'"</div>");
+    // alert("Empty Tweet!");
+    
+    
+    
+  // $(".empty-tweet").slideDown('slow', hideElement(".empty-tweet"));
   // Prevent a long tweet from being submitted
   } else if (textLimit > 140) {
-    alert("Tweet is too long!");
+    $("#error-limit").show();
+    $("#error-blank").hide();
+    // ($(".error").first().is(":hidden"));
+    // hideElement(".error");
+    // $("#error-msg").append(" <b>Appended text</b>.");
+    $(".error").slideDown("slow");
+    setTimeout(() => {
+      $(".error").slideUp("slow");
+    }, 1500);
   } else {
  
     $.ajax({
@@ -83,7 +116,6 @@ const submitTweet = function(event) {
       // Load tweet data
       fetchTweets(data);
  
-
       // clear tweet text area when tweet is submitted
       $("#tweet-text").val("");
       // reset the counter back to 140

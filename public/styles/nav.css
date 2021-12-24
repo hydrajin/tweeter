@@ -1,18 +1,18 @@
 nav {
-  background-color: #4056A1;
+  background-color: #4056a1;
   justify-content: space-between;
   display: flex;
   height: 120px;
-  color:#FFFFFF;
+  color: #ffffff;
   padding: 0 1.5em;
   position: fixed;
   width: 100%;
   top: 0;
 }
 .tweeter-title {
-  font-family: 'Bungee', sans-serif;
+  font-family: "Bungee", sans-serif;
   font-size: 40px;
-  align-items: center;  
+  align-items: center;
   margin-top: 1em;
 }
 
@@ -30,4 +30,16 @@ nav div {
 nav .fas {
   color: #ff0000;
   margin-left: 0.5em;
+}
+
+#dd {
+  animation: MoveUpDown 1s infinite alternate;
+}
+@keyframes MoveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
 }

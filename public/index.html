@@ -66,7 +66,7 @@
         <span class="nav-text">
           <b class="write-new-tweet">Write </b> a new tweet
         </span>
-        <i class="fas fa-angle-double-down"></i>
+        <i class="fas fa-angle-double-down" id="dd"></i>
       </div>
     </nav>
     <header>
@@ -84,6 +84,10 @@
         <!--<h2>Compose Tweet</h2>-->
         <form action="/tweets" method="POST" id="post-tweet">
           <label for="tweet-text">What are you humming about?</label>
+          <div hidden class="error">
+            <p id="error-blank">⚠ Please enter some text! ⚠</p>
+            <p id="error-limit">⚠ Character limit exceeded ⚠</p>
+          </div>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="break-line"></div>
           <div class="button-out">
