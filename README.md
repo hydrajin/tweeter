@@ -14,6 +14,15 @@ in either case, transitions between 'shown' and 'hidden' states should be animat
 When a user scrolls a second button appears in the lower right hand corner (center in mobile view):
 if the user clicks this button they are brought back up to the top of the page
 
+## Screenshots
+![Tweet submission](docs/tweet submission.png)
+![Double down arrow toggle hide/show tweet area](docs/toggle hide.png)
+![Back to top button when scroll bar is present](docs/back to top.png)
+![Hovering over tweetbox reveals a shadow while hovering over flag/retweet/heart changes color](docs/hover.png)
+![Mobile browser version for smaller screens](docs/mobile .png)
+![Empty tweet error](docs/error empty.png)
+![Character limit exceeded error](docs/error limit.png)
+
 ## Getting Started
 
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
