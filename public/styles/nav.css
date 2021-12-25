@@ -8,6 +8,7 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 .tweeter-title {
   font-family: "Bungee", sans-serif;
@@ -42,5 +43,11 @@ nav .fas {
   }
   100% {
     transform: translateY(-5px);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    background-color: #ffa500;
   }
 }

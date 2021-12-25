@@ -3,6 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- External CSS -->
     <link
@@ -28,9 +29,9 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -73,7 +74,6 @@
       <div>
         <img src="/images/profile-hex.png" alt="Tweeter-Girl" />
       </div>
-      <br />
       <div>
         <h2><strong>Suliman</strong> Fayyaz</h2>
       </div>
@@ -83,10 +83,11 @@
       <section class="new-tweet">
         <!--<h2>Compose Tweet</h2>-->
         <form action="/tweets" method="POST" id="post-tweet">
+          <div class="toggle"></div>
           <label for="tweet-text">What are you humming about?</label>
           <div hidden class="error">
             <p id="error-blank">⚠ Please enter some text! ⚠</p>
-            <p id="error-limit">⚠ Character limit exceeded ⚠</p>
+            <p id="error-limit">⚠ Character limit exceeded! ⚠</p>
           </div>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="break-line"></div>
@@ -102,6 +103,7 @@
         <article id="submit-tweet"></article>
         <!-- HERE -->
       </section>
+      <button id="bk-2-top">Back To Top</button>
     </main>
   </body>
 </html>

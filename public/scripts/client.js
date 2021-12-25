@@ -14,32 +14,48 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
-// $(document).ready(function () {
-// Shorter more concise way of saying .ready
+//! ------------------------------jQuery READY()------------------------------
+// Shorter more concise way of saying $(document).ready(function()
 $(() => {
   // Load tweets on page ready (When the entire page is loaded)
-  
   fetchTweets();
 
   // Prevent errors from being visible when page is loaded/refreshed
   $(".error").hide();
 
+  // Hide scroll to top button
+  $("#bk-2-top").hide();
+
+  // Tweet sumbission
   const $form = $("#post-tweet");
   $form.on("submit", submitTweet);
 
+  // Double down arrow tweet toggle
+  $("#dd").click(function() {
+    $("#post-tweet").slideToggle(420);
+    $("#tweet-text").focus();
+  });
+  
+  // Show back to top button when scroll bar present
+  $(window).scroll(function() {
+    $("#bk-2-top").show();
+  });
+
+  // Animated scroll to top button
+  $("#bk-2-top").click(function() {
+    $("html").animate({
+      scrollTop: 0
+    }, 600);
+  });
 });
 
-// $.getJSON("/tweets", function() {
-//! I used this JQUERY  function (Andy AJAX lecture 00:10:00 to test if tweets.JSON data would work)
-// So far, all the data loads and new tweets appear when page is refreshed...
-
 //! ------------------------------FETCH TWEETS------------------------------
-// GET REQUEST
+//& GET REQUEST
+
 const fetchTweets = () => {
   $.ajax({
     url: "/tweets",
     method: "GET",
-    // data: JSON.stringify,
     dataType: "JSON",
     success: (data) => {
       // console.log(data);
@@ -53,7 +69,9 @@ const fetchTweets = () => {
 };
 
 //! ------------------------------SUBMIT A NEW TWEET------------------------------
-//POST REQUEST
+//& POST REQUEST
+
+// Write a new tweet toggle
 const submitTweet = function(event) {
   // Prevent the page from refreshing/redirecting on submit
   event.preventDefault();
@@ -63,28 +81,31 @@ const submitTweet = function(event) {
   const serializedData = $(this).serialize();
   // console.log("Serialized Data", serializedData);
 
+  // Character limit length
   const tweetText = $("#tweet-text").val();
   const textLimit = tweetText.length;
+
+  // modular error function
+  const error = () => {
+    $(".error").slideDown("slow");
+    setTimeout(() => {
+      $(".error").slideUp("slow");
+    }, 1500);
+  };
 
   // Prevent empty tweet from being submitted
   if (tweetText === "") {
     $("#error-blank").show();
     $("#error-limit").hide();
-    $(".error").slideDown("slow");
-    setTimeout(() => {
-      $(".error").slideUp("slow");
-    }, 1500);
+    error();
  
-  // Prevent a long tweet from being submitted
+    // Prevent a long tweet from being submitted
   } else if (textLimit > 140) {
     $("#error-limit").show();
     $("#error-blank").hide();
-    $(".error").slideDown("slow");
-    setTimeout(() => {
-      $(".error").slideUp("slow");
-    }, 1500);
+    error();
+
   } else {
- 
     $.ajax({
       url: "/tweets",
       method: "POST",
@@ -105,6 +126,7 @@ const submitTweet = function(event) {
     );
   }
 };
+
 //! ------------------------------RENDER TWEETS------------------------------
 
 const renderTweets = function(tweets) {
@@ -115,7 +137,7 @@ const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
     const $newTweet = createTweetElement(tweet);
-    // takes return value and appends it to the tweets container
+    // takes return value and prepends it to the tweet container
     $tweetContainer.prepend($newTweet);
   }
 };

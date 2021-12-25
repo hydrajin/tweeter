@@ -1,25 +1,45 @@
 header {
-  height: 400px;
-  width: 100%;
+  align-self: flex-start;
+  margin: 10em 3em 0 3em;
+  padding: 3em;
+  margin-left: 2em;
+  width: 40vw;
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background-color: #0c5900; */
-  margin-top: 120px;
   background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header h2 {
   margin: 0%;
   font-weight: 400;
-  font-size: 50px;
+  font-size: 3vw;
 }
 
 .header-2 {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
+  word-break: normal;
 }
 
+/* Phone/Tablet/Small screens */
 
+@media only screen and (max-width: 1024px) {
+  header {
+    height: 400px;
+    width: 100%;
+    background-color: #ffa500;
+    background-image: none;
+    margin: 80px 0 0 0;
+  }
+
+  #tweet-container {
+    width: 100%;
+  }
+
+  header h2 {
+    font-size: 6vw;
+    color: #ffffff;
+  }
+}

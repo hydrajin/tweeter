@@ -1,11 +1,12 @@
+/* PADDING/MARGIN: top right bottom left */
+
 .container {
   width: 90%;
   word-break: break-word;
+  padding-top: 1em;
 }
 
 .new-tweet {
-  /* color: #000; 
-  background-color: rgb(74, 73, 73);*/
   width: 100%;
   color: #343030;
 }
@@ -18,13 +19,13 @@ form {
 
 /* What are you humming about? */
 label {
-  margin-top: 5px;
+  margin-bottom: 5px;
   color: #6b6b6b;
+  font-weight: bolder;
   font-size: 28px;
 }
 
 textarea {
-  /* margin: 0em 0em 0.5em 0em; */
   border: none;
   height: 60px;
   resize: none;
@@ -76,7 +77,6 @@ button {
   margin-top: 1.5em;
   margin-bottom: 1.5;
   border: 3px solid #6b6b6b;
-  /* top right bottom left */
   padding: 1em;
 }
 
@@ -106,6 +106,8 @@ button {
   margin-bottom: 2em;
 }
 
+/* Bottom of tweetbox */
+
 .footer {
   display: flex;
   align-items: center;
@@ -132,9 +134,38 @@ button {
   color: #ff0000;
 }
 
+/* MISC */
+
 .error {
   display: flex;
   justify-content: center;
-  /* outline: 1px dotted #ff0000; */
-  color: #ff0000;
+  background-color: #ff0000;
+  font-weight: bolder;
+  color: #ffffff;
+
+  border-radius: 8px;
+}
+
+#bk-2-top {
+  margin: 1em;
+}
+
+/* for desktop/large screens */
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 55%;
+    display: flex;
+    justify-content: space-around;
+    margin: 6.2em 2em 0 2em;
+  }
+
+  .toggle {
+    height: 2.5em;
+  }
+
+  #bk-2-top {
+    align-self: end;
+    margin-right: 0;
+  }
 }
