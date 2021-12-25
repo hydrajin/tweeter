@@ -15,13 +15,13 @@ When a user scrolls a second button appears in the lower right hand corner (cent
 if the user clicks this button they are brought back up to the top of the page
 
 ## Screenshots
-![Tweet submission](docs/tweet submission.png)
-![Double down arrow toggle hide/show tweet area](docs/toggle hide.png)
-![Back to top button when scroll bar is present](docs/back to top.png)
+![Tweet submission](docs/tweet%20submission.png)
+![Double down arrow toggle hide/show tweet area](docs/toggle%20hide.png)
+![Back to top button when scroll bar is present](docs/back%20to%20top.png)
 ![Hovering over tweetbox reveals a shadow while hovering over flag/retweet/heart changes color](docs/hover.png)
-![Mobile browser version for smaller screens](docs/mobile .png)
-![Empty tweet error](docs/error empty.png)
-![Character limit exceeded error](docs/error limit.png)
+![Empty tweet error](docs/error%20empty.png)
+![Character limit exceeded error](docs/error%20limit.png)
+![Mobile browser version for smaller screens](docs/mobile%20.png)
 
 ## Getting Started
 
