@@ -19,7 +19,7 @@ const escape = function(str) {
 $(() => {
   // Load tweets on page ready (When the entire page is loaded)
   fetchTweets();
-
+  
   // Prevent errors from being visible when page is loaded/refreshed
   $(".error").hide();
 
@@ -64,7 +64,6 @@ const fetchTweets = () => {
     method: "GET",
     dataType: "JSON",
     success: (data) => {
-      // console.log(data);
       renderTweets(data);
     },
     error: (err) => {
@@ -81,16 +80,10 @@ const fetchTweets = () => {
 const submitTweet = function(event) {
   // Prevent the page from refreshing/redirecting on submit
   event.preventDefault();
-
-  // console.log("The form was submitted");
-
   const serializedData = $(this).serialize();
-  // console.log("Serialized Data", serializedData);
-
   // Character limit length
   const tweetText = $("#tweet-text").val();
   const textLimit = tweetText.length;
-
   // modular error function
   const error = () => {
     $(".error").slideDown("slow");
@@ -98,35 +91,28 @@ const submitTweet = function(event) {
       $(".error").slideUp("slow");
     }, 1500);
   };
-
   // Prevent empty tweet from being submitted
   if (tweetText === "") {
     $("#error-blank").show();
     $("#error-limit").hide();
     error();
- 
     // Prevent a long tweet from being submitted
   } else if (textLimit > 140) {
     $("#error-limit").show();
     $("#error-blank").hide();
     error();
-
   } else {
     $.ajax({
       url: "/tweets",
       method: "POST",
       data: serializedData,
-
     }).then(function(data) {
-      // console.log("Sucessful tweet!", data);
       // Load tweet data
       fetchTweets(data);
- 
       // clear tweet text area when tweet is submitted
       $("#tweet-text").val("");
       // reset the counter back to 140
       $("output.counter").text(140);
-
     }).fail((err) =>
       console.log(err)
     );
