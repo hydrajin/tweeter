@@ -23,7 +23,7 @@ $(() => {
   // Prevent errors from being visible when page is loaded/refreshed
   $(".error").hide();
 
-  // Hide scroll to top button
+  // Hide scroll to top button initially
   $("#bk-2-top").hide();
 
   // Tweet sumbission
@@ -36,9 +36,15 @@ $(() => {
     $("#tweet-text").focus();
   });
   
-  // Show back to top button when scroll bar present
-  $(window).scroll(function() {
-    $("#bk-2-top").show();
+  // Show back to top button only when scroll bar present
+  $(() => {
+    $(window).scroll(function() {
+      if ($(this).scrollTop()) {
+        $("#bk-2-top").show();
+      } else {
+        $("#bk-2-top").hide();
+      }
+    });
   });
 
   // Animated scroll to top button
