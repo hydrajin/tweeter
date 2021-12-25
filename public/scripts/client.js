@@ -64,7 +64,6 @@ const fetchTweets = () => {
     method: "GET",
     dataType: "JSON",
     success: (data) => {
-      // console.log(data);
       renderTweets(data);
     },
     error: (err) => {
@@ -82,10 +81,7 @@ const submitTweet = function(event) {
   // Prevent the page from refreshing/redirecting on submit
   event.preventDefault();
 
-  // console.log("The form was submitted");
-
   const serializedData = $(this).serialize();
-  // console.log("Serialized Data", serializedData);
 
   // Character limit length
   const tweetText = $("#tweet-text").val();
@@ -118,7 +114,7 @@ const submitTweet = function(event) {
       data: serializedData,
 
     }).then(function(data) {
-      // console.log("Sucessful tweet!", data);
+
       // Load tweet data
       fetchTweets(data);
  
